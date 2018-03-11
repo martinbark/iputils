@@ -18,5 +18,34 @@ If you still use [old version](http://www.skbuff.net/iputils/), please consider 
 
 This version also fully supports glibc, uClibc and musl-libc.
 
-<!-- vim: set tw=80: -->
+## Dependencies
 
+To compile you need the following tools:
+
+ * [Git]()
+ * [CMake]() >= 2.8
+ * [pkg-config]()
+
+## Building
+
+```sh
+git clone https://github.com/iputils/iputils.git
+cd iputils
+mkdir build
+cd build
+cmake [options] ..
+make
+```
+
+Where [options] are:
+
+ * `-DCMAKE_BUIlD_TYPE=Release` Build in Release mode
+ * `-DCMAKE_INSTALL_PREFIX=/path/to/install` default is `/usr/local`
+ * `-DUSE_CAP=OFF` Capability support (with libcap).  Default is on
+ * `-DUSE_IDN=OFF` IDN support.  Default is on
+ * `-DUSE_NETTLE=OFF` nettle library for ipv6 ping.  Default is on
+ * `-DUSE_GCRYPT=ON` libgcrypt library for ipv6 ping.  Default is off
+ * `-DUSE_OPENSSL=ON` openssl library for ping6.  Default is off
+ * `-DRDISC_SERVER=ON` rdisc server (-r option) support.  Default is off
+
+<!-- vim: set tw=80: -->

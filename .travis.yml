@@ -5,6 +5,7 @@ before_install:
 install:
   - sudo apt-get install libcap-dev libidn2-0-dev -qq
   - sudo apt-get install nettle-dev libidn2-0-dev -qq
+  - sudo apt-get install cmake -qq
 
 compiler:
   - gcc
@@ -15,5 +16,7 @@ env:
     - USE_CAP=no
     - USE_IDN=yes
     - USE_IDN=no
+before_script:
+    mkdir build && cd build && cmake ..
 script: make USE_CAP=${USE_CAP} USE_IDN=${USE_IDN}
 
